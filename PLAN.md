@@ -71,6 +71,21 @@ Echo 会把所有参数打出来，而 `vbInformation = 64`。真实安装器走
 PID 15148 / 9012 / 3020 / 8316 / 3540，`ThreadCount=0`，`SessionId=1`；`Stop-Process -Force` 无效。
 **影响**：不在 ROT，**不阻塞** `CreateObject` 与构建/安装（已实测跑通）；但需**重启系统**才能清掉。
 
+### 3.9 本机 `github.com` 直连被重置 —— 推送改走 Git Data API
+**现象**：`git clone https://github.com/Ri1035/cdrx4-typeset.git` →
+`fatal: unable to access ... Recv failure: Connection was reset`；
+`curl https://github.com` 超时（`http=000`，19.5s）。但 `curl https://api.github.com` → **200，0.44s**。
+**原因**：本机网络对 `github.com`（git 的 443 与网页）被重置，而 `api.github.com` 正常。
+**应对**：放弃 `git push`，改用 **GitHub Git Data API** 建提交，已成功发布 13 个提交 + v1.0.0 Release：
+1. 空仓库拒绝 `git/blobs`（`409 Git Repository is empty`）→ 先用 **Contents API**
+   （`PUT /contents/.gitignore`）种下第一个提交，之后 Git Data API 才可用；
+2. 每步：`POST /git/blobs`（逐文件 base64）→ `POST /git/trees`（带 `base_tree` 做增量）
+   → `POST /git/commits`（带 `parents`）→ `PATCH /git/refs/heads/main`；
+3. **中文不要写进 `.ps1`**：PS5 按 ANSI 解析无 BOM 脚本，中文会乱码并**破坏字符串引号**
+   （已实际踩到，报 `The string is missing the terminator`）。提交信息从 **UTF-8 文件**读，
+   中文路径用 `[char]0xXXXX` 拼 —— 保持脚本**纯 ASCII**；
+4. Release 附件走 `uploads.github.com`（本机**可达**），`TypesetToolkit.gms` 已作为 v1.0.0 资产归档。
+
 ## 4. 三层验证（每次改代码都要重跑）
 
 ```powershell
@@ -87,8 +102,11 @@ powershell -ExecutionPolicy Bypass -File tools\verify_toolbar.ps1 -WaitSec 24   
 
 - 维护 `CHANGELOG.md`（版本 + 日期 + 改了什么 + 验证结果）、`README.md`、`PLAN.md`（本文件）。
 - **一个功能一个提交**。
-- 工作副本**不是** git 仓库；推送靠同级目录的暂存克隆 `_push_stage\`：
-  把要发布的文件复制进去 → `git add/commit` → **经用户确认** → `push`。
+- 工作副本**不是** git 仓库；推送原计划靠同级目录的暂存克隆 `_push_stage\`
+  （复制文件 → `git add/commit` → 经用户确认 → `push`）。
+  **⚠ 本机不可用**：`github.com` 直连被重置（见 §3.9），实际改用 **Git Data API** 推送。
+- 仓库：<https://github.com/Ri1035/cdrx4-typeset>（public，MIT，默认分支 `main`）。
+  v1.0.0 已发 **Release** 并附 `TypesetToolkit.gms`（138770 B，SHA-256 `83D1776D…E4D701A`）。
 - **侦察产物一律不进仓库**：`_ref\`、`_recon_src\`、`recon_ws.txt`、`*.log`、`_*.png`、`_push_stage\`。
 - 中文提交信息走 `git commit -F <UTF-8 文件>`，避免 PowerShell 的 Latin-1 把中文/文件名搞坏。
 - 凭据：OAuth 连接器身份 `KOKACODA` 对 `Ri1035/*` 仓库 **push 权限不足**，

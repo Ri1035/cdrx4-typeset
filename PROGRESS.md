@@ -3,7 +3,7 @@
 > 本文件是**唯一的进度权威**。上下文被压缩后，先读本文件再动手，不要重新侦察、
 > 不要重跑已标 ✅ 的步骤。每完成一步就把状态改成 ✅ 并补上验证证据。
 >
-> 最后更新：2026-09-28 17:0x
+> 最后更新：2026-09-28（含 GitHub 发布）
 
 ---
 
@@ -160,6 +160,21 @@ X4 的 VBE 对**缺** Attribute 行的模块不按文件名命名，会取一个
 插件已安装在本机，**打开 CorelDRAW 即可看到「排版工具」工具栏**。
 
 > 唯一遗留：本机 5 个 0 线程僵尸 `CorelDRW.exe` 需**重启系统**清理（不影响插件使用）。
+
+---
+
+## 3.7 GitHub 发布（✅ 已完成）
+
+| 项 | 值 |
+|---|---|
+| 仓库 | <https://github.com/Ri1035/cdrx4-typeset>（public，MIT，默认分支 `main`） |
+| 提交 | **13 个**，遵循「一个功能一个提交」（首个为忽略规则种子提交，末个为文档同步） |
+| 版本 | tag / Release **`v1.0.0`**，附 `TypesetToolkit.gms`（138770 B，SHA-256 `83D1776D…E4D701A`） |
+| 推送方式 | ⚠ 本机 `github.com` 直连被重置 → 改用 **GitHub Git Data API**（详见 `PLAN.md` §3.9） |
+| 未入库 | 侦察产物（`_recon_src\`、`_ref\`、`recon_ws.txt`）、`*.log`（除 `logs\build.log`）、`_*_silent.vbs`、`dist\TypesetToolkit.gms`（改由 Release 归档） |
+| 优化清单 | `docs\优化问题总结.md`（功能 6 / 工程 6 / 环境 2 / 兼容 3 / 安全 2；E2 已解决） |
+
+> ⚠ **凭据**：本次推送使用的 PAT 明文出现在会话中，**用完必须吊销**（GitHub → Settings → Developer settings → Personal access tokens）。
 
 ---
 

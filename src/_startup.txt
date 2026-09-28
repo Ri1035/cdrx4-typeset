@@ -1,0 +1,20 @@
+--none
+'==========================================================
+' 排版工具 TypesetToolkit —— 启动钩子占位文件
+'
+' 第一行的 --none 是「不装启动钩子」的哨兵值：
+' build_gms.vbs 读到它就把 ThisDocument 留空。
+'
+' 【为什么默认没有钩子】
+' CorelDRAW 的 GlobalMacroStorage_Start 回调触发时，命令栏框架
+' 还没初始化完。在里面建 / 删 CommandBars 会让 X4 直接崩溃
+' （CrlFrmWk.dll，0xc0000005 -> 0xc000041d），并留下杀不掉的
+' 0 线程僵尸进程。On Error Resume Next 也挡不住 —— 访问冲突不是
+' 可捕获的 VBA 错误。
+'
+' 工具栏由安装器在 CorelDRAW 完全启动后写进工作区
+' （DRAWUIConfig.xml），装一次就长期存在，不需要钩子。
+'
+' 要临时开钩子：把本文件第一行换掉，或用 build_gms.vbs --hook=<file>。
+' 但任何 UI 操作都不要放进钩子。
+'==========================================================

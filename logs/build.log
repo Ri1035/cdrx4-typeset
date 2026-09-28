@@ -1,0 +1,110 @@
+﻿[0] seed   = C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\Emboss.gms
+[0] target = C:\Users\Administrator\AppData\Roaming\Corel\CorelDRAW Graphics Suite X4\User Draw\GMS\TypesetToolkit.gms
+[0] re-encoded 9 sources to GBK
+[1] seed copied (previous build kept as .bak)
+    proj 1 name=GlobalMacros file=C:\Program Files (x86)\CorelDRAW X4\Draw\GlobalMacros.gms
+    proj 2 name=ZeroBase file=C:\Users\Administrator\AppData\Roaming\Corel\CorelDRAW Graphics Suite X4\User Draw\GMS\ZeroBase.gms
+    proj 3 name=Emboss file=C:\Users\Administrator\AppData\Roaming\Corel\CorelDRAW Graphics Suite X4\User Draw\GMS\TypesetToolkit.gms
+    proj 4 name=LYVBA file=C:\Users\Administrator\AppData\Roaming\Corel\CorelDRAW Graphics Suite X4\User Draw\GMS\LYVBA.gms
+    proj 5 name=LinesTool file=C:\Users\Administrator\AppData\Roaming\Corel\CorelDRAW Graphics Suite X4\User Draw\GMS\Lanya_LinesTool.gms
+    proj 6 name=CDRX4Toolkit file=C:\Users\Administrator\AppData\Roaming\Corel\CorelDRAW Graphics Suite X4\User Draw\GMS\CDRX4Toolkit.gms
+    proj 7 name=VersionConversion102 file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\�汾ת����.gms
+    proj 8 name=GlobalMacros file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\�鼹����.gms
+    proj 9 name=ToJPG file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\ToJPG.gms
+    proj 10 name=SecuriDesign file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\SecuriDesign.gms
+    proj 11 name=RectangleFixer file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\RectangleFixer.gms
+    proj 12 name=Node123 file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\Node.gms
+    proj 13 name=FitObjectsToPath file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\FitObjects.gms
+    proj 14 name=FileConverter file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\FileConverteren.gms
+    proj 15 name=FileConverter file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\FileConverter.gms
+    proj 16 name=Emboss file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\Emboss.gms
+    proj 17 name=Cachet_���� file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\CorelVbacn_cachetӡ��.gms
+    proj 18 name=ConverTo file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\ConverTo.gms
+    proj 19 name=ColorReplacer file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\ColorReplacer.gms
+    proj 20 name=CalendarWizard file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\CalendarWizard.gms
+    proj 21 name=AIClipboard file=C:\Program Files (x86)\CorelDRAW X4\Draw\GMS\AIClipBrd.gms
+[2] project = TypesetToolkit prot=0 comps=3
+[3] comps after cleanup = 1 (after attempt 1)
+[4] comps now = 10 (want 10 = ThisDocument + 9 modules)
+[5] startup hook: NONE (ThisDocument left empty)
+[7] SaveAs err=748 �����������ڴ��๤��������Ч�ġ�
+[7] active project after import = [AIClipboard]
+[7a] try 1.1 save caption=[���� AIClipBrd.gms(&S)]
+[7a] try 1.2 save caption=[���� TypesetToolkit.gms(&S)]
+[7b] save err=0 
+[8] size before=54290 after=138770
+[9] running probe ...
+[9] Probe err=0 
+[9] Diag err=0 
+[9] SelfTest err=0 
+[9] DiagToolbar err=0 
+---- diag ----
+TypesetToolkit diag 2026/9/28 16:49:00
+version  = 14.0.0.701 �汾
+prj name = TypesetToolkit
+toolbar  = �Ű湤��
+proj 2 name=ZeroBase comps=19
+proj 3 name=TypesetToolkit comps=10
+proj 5 name=LinesTool comps=11
+proj 6 name=CDRX4Toolkit comps=13
+proj 8 name=GlobalMacros comps=2
+proj 14 name=FileConverter comps=24
+proj 15 name=FileConverter comps=24
+proj 16 name=Emboss comps=3
+proj 21 name=AIClipboard comps=4
+  comp 1 name=ThisDocument type=100 lines=0
+  comp 2 name=M_Util type=1 lines=476
+  comp 3 name=M_Spine type=1 lines=69
+  comp 4 name=M_Align type=1 lines=95
+  comp 5 name=M_Distribute type=1 lines=207
+  comp 6 name=M_DelSegment type=1 lines=144
+  comp 7 name=M_CropMark type=1 lines=154
+  comp 8 name=M_Impose type=1 lines=167
+  comp 9 name=M_Install type=1 lines=347
+  comp 10 name=M_Test type=1 lines=406
+done
+
+---- end diag ----
+---- selftest ----
+TypesetToolkit selftest 2026/9/28 16:49:00
+0 create doc    err=0
+0 page/layer    err=0
+1 spine thick   t=10.8 want=10.8 err=0
+1 spine weight  w=80. want=80 err=0
+2 align select  n=3 want=3 err=0
+2 align moved   n=2 want=2 err=0
+2 align check   c=(50.,50.) want=(50,50)
+3 distrib moved n=2 want=2 err=0
+3 distrib gap   gap=0.1969 want=0.1969
+4a delseg isline=True want=True err=0
+4a delseg obj   n=1 want=1  shapes 6->6 want=+1-1 err=0
+4b curve nodes  before=4 want=4 err=0
+4b delseg node  n=1 want=1  nodes 4->2 want=4->2 err=0
+5 cropmark line n=8 want=8  shapes 8->9 want=+1(grouped) err=0
+6 impose total  n=6 want=6  shapes 10->15 want=+5 err=0
+done
+
+---- end selftest ----
+---- toolbar ----
+TypesetToolkit toolbar 2026/9/28 16:49:01
+expect       n=6
+exp 1 caption=[ƴ��] proc=[M_Impose.Impose]
+exp 2 caption=[������] proc=[M_CropMark.CropMark]
+exp 3 caption=[�鼹����] proc=[M_Spine.SpineCalc]
+exp 4 caption=[���Ķ���] proc=[M_Align.CenterAlign]
+exp 5 caption=[�����ֲ�] proc=[M_Distribute.DistributeBySpacing]
+exp 6 caption=[ɾ���߶�] proc=[M_DelSegment.DelSegment]
+install      err=0
+toolbar      found=True  err=0
+controls     n=6
+btn 1 caption=[ƴ��] tooltip=[��ѡ�еĶ��� ��x�� �������̿�����ѡ���м�ࣩ] err=0
+btn 2 caption=[������] tooltip=[Χ��ѡ�ж���İ�Χ�л��ĸ��ǵĲ����ߣ����ߣ�] err=0
+btn 3 caption=[�鼹����] tooltip=[��ֽ�ſ�������ҳ�������鼹��ȣ��������] err=0
+btn 4 caption=[���Ķ���] tooltip=[��ѡ�ж�������Ķ��뵽��ײ���������] err=0
+btn 5 caption=[�����ֲ�] tooltip=[��ѡ�ж��󰴹̶�����ƽ������ų�һ��] err=0
+btn 6 caption=[ɾ���߶�] tooltip=[ɾ��ѡ�е�ֱ�߶ζ��󣬻�������ѡ�нڵ�֮����߶�] err=0
+done
+
+---- end toolbar ----
+
+==== BUILD OK ====
